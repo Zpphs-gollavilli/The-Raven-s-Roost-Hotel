@@ -1,13 +1,7 @@
-// src/components/Interface/BugReport/BugReport.jsx
-
 import { useState, useRef } from 'react';
 import useLocalization from '../../../hooks/useLocalization';
 import { getAudioInstance } from '../../../utils/audio';
-import { getConsoleMessages } from '../../../utils/consoleLogger';
 import './BugReport.css';
-
-// This component now submits bug reports to a Netlify Function
-// (/.netlify/functions/submitBugReport) instead of using Firebase.
 
 export default function BugReport({ onClose }) {
   const [description, setDescription] = useState('');
@@ -17,6 +11,7 @@ export default function BugReport({ onClose }) {
   const lastMenuSoundTime = useRef(0);
   const { t } = useLocalization();
 
+  // Play menu click sound, throttled
   const playMenuSound = () => {
     const now = Date.now();
     if (now - lastMenuSoundTime.current < 150) return;
@@ -28,6 +23,7 @@ export default function BugReport({ onClose }) {
     }
   };
 
+  // Submit bug report locally
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isSubmitting) return;
@@ -36,40 +32,13 @@ export default function BugReport({ onClose }) {
     setError(null);
 
     try {
-      const platformInfo = getPlatformInfo();
-      const deviceInfo = {
-        ...platformInfo,
-        screenResolution: `${window.screen.width}x${window.screen.height}`,
-        windowResolution: `${window.innerWidth}x${window.innerHeight}`,
-        devicePixelRatio: window.devicePixelRatio,
-        gpu: getGPUInfo(),
-        language: navigator.language,
-        isMobile: /Mobi|Android|iPhone/i.test(navigator.userAgent),
-      };
-
-      const payload = {
-        description: description.trim(),
-        consoleMessages: getConsoleMessages(),
-        deviceInfo,
-        createdAt: new Date().toISOString(),
-      };
-
-      const res = await fetch('/.netlify/functions/submitBugReport', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
-
-      if (!res.ok) {
-        const body = await res.text();
-        throw new Error(`Server responded ${res.status}: ${body}`);
-      }
-
+      console.log('Bug report submitted locally:', description);
       setSubmitSuccess(true);
       playMenuSound();
 
+      // Auto-close after 2 seconds
       setTimeout(() => {
-        onClose();
+        if (typeof onClose === 'function') onClose();
       }, 2000);
     } catch (err) {
       console.error('Error submitting bug report:', err);
@@ -79,73 +48,19 @@ export default function BugReport({ onClose }) {
     }
   };
 
-  const handleMouseDown = (e) => {
-    // use classList.contains for more robust checks
-    if (e.target.classList && e.target.classList.contains('bug-report-overlay')) {
-      onClose();
+  // Close modal if overlay is clicked
+  const handleOverlayClick = (e) => {
+    if (e.target.classList.contains('bug-report-overlay')) {
       playMenuSound();
-    }
-  };
-
-  const getPlatformInfo = () => {
-    if (window.electron) {
-      return {
-        type: 'Desktop',
-        environment: 'Electron',
-        version: window.electron.versions?.electron,
-        chrome: window.electron.versions?.chrome,
-        platform: window.electron.platform,
-        arch: window.electron.arch,
-      };
-    }
-
-    const userAgent = window.navigator.userAgent.toLowerCase();
-    const platform = window.navigator.platform || 'unknown';
-    let browser = 'Unknown Browser';
-
-    if (userAgent.includes('firefox/')) browser = 'Firefox';
-    else if (userAgent.includes('chrome/')) {
-      if (userAgent.includes('edg/')) browser = 'Edge';
-      else if (userAgent.includes('opr/')) browser = 'Opera';
-      else browser = 'Chrome';
-    } else if (userAgent.includes('safari/') && !userAgent.includes('chrome/')) {
-      browser = 'Safari';
-    }
-
-    let os = 'Unknown OS';
-    if (userAgent.includes('win')) os = 'Windows';
-    else if (userAgent.includes('mac')) os = 'MacOS';
-    else if (userAgent.includes('linux')) os = 'Linux';
-    else if (userAgent.includes('android')) os = 'Android';
-    else if (userAgent.includes('ios') || /iPad|iPhone|iPod/.test(platform)) os = 'iOS';
-
-    return {
-      type: 'Browser',
-      browser,
-      os,
-      platform,
-    };
-  };
-
-  const getGPUInfo = () => {
-    try {
-      const canvas = document.createElement('canvas');
-      const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
-      if (!gl) return 'WebGL not supported';
-
-      const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
-      if (!debugInfo) return 'GPU info not available';
-
-      return gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
-    } catch (e) {
-      return 'GPU detection error';
+      if (typeof onClose === 'function') onClose();
     }
   };
 
   return (
-    <div className="bug-report-overlay" onMouseDown={handleMouseDown}>
-      <div className="bug-report-container">
+    <div className="bug-report-overlay" onMouseDown={handleOverlayClick}>
+      <div className="bug-report-container" onMouseDown={(e) => e.stopPropagation()}>
         <h2>{t('ui.bugReport.title')}</h2>
+
         {!submitSuccess ? (
           <form onSubmit={handleSubmit}>
             <div className="form-group">
@@ -159,24 +74,29 @@ export default function BugReport({ onClose }) {
                 placeholder={t('ui.bugReport.placeholder')}
               />
             </div>
+
             {error && <div className="error-message">{error}</div>}
+
             <div className="button-group">
               <button
                 type="button"
                 onClick={() => {
-                  onClose();
                   playMenuSound();
+                  if (typeof onClose === 'function') onClose();
                 }}
                 className="cancel-button"
               >
                 {t('ui.bugReport.cancel')}
               </button>
+
               <button
                 type="submit"
                 disabled={isSubmitting || !description.trim()}
                 className="submit-button"
               >
-                {isSubmitting ? t('ui.bugReport.submitting') : t('ui.bugReport.submit')}
+                {isSubmitting
+                  ? t('ui.bugReport.submitting')
+                  : t('ui.bugReport.submit')}
               </button>
             </div>
           </form>
@@ -187,34 +107,3 @@ export default function BugReport({ onClose }) {
     </div>
   );
 }
-
-
-/* -----------------------------
-   Netlify Function (example)
-   Place this file at: netlify/functions/submitBugReport.js
-   ----------------------------- */
-
-/*
-exports.handler = async function(event, context) {
-  try {
-    const body = JSON.parse(event.body);
-
-    // Example: write to a simple JSON file, external DB, or send to email/Slack
-    // NOTE: For production, store reports in a database (Fauna, Supabase, Mongo Atlas, etc.)
-
-    console.log('Received bug report:', body);
-
-    // Example response
-    return {
-      statusCode: 200,
-      body: JSON.stringify({ ok: true, message: 'Bug report received' }),
-    };
-  } catch (err) {
-    console.error('Error in submitBugReport function:', err);
-    return {
-      statusCode: 500,
-      body: JSON.stringify({ ok: false, error: 'Internal Server Error' }),
-    };
-  }
-};
-*/
