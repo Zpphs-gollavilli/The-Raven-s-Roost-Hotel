@@ -1,0 +1,146 @@
+{
+	"ui": {
+		"settings": {
+			"title": "USTAWIENIA",
+			"visuals": "GRAFIKA",
+			"sensitivity": "CZUŁOŚĆ",
+			"controls": "STEROWANIE",
+			"progress": "POSTĘP",
+			"language": "JĘZYK",
+			"fullscreen": "Pełny ekran",
+			"shadows": "Cienie",
+			"verticalSensitivity": "Czułość pionowa",
+			"horizontalSensitivity": "Czułość pozioma",
+			"move": "Ruch",
+			"interact": "Interakcja",
+			"listenCarefully": "Nasłuchuj uważnie",
+			"crouch": "Kucnij",
+			"jump": "Skok",
+			"resetProgress": "Resetuj postęp",
+			"reportBug": "Zgłoś błąd"
+		},
+		"bugReport": {
+			"title": "ZGŁOŚ BŁĄD",
+			"description": "Opisz napotkany błąd",
+			"placeholder": "Co się stało? Co robiłeś/aś gdy wystąpił błąd? Czy są jakieś dodatkowe szczegóły, które mogłyby nam pomóc w naprawie?",
+			"submit": "Wyślij zgłoszenie",
+			"submitting": "Wysyłanie...",
+			"cancel": "Anuluj",
+			"success": "Dziękujemy za zgłoszenie! Zajmiemy się tym.",
+			"submitError": "Nie udało się wysłać zgłoszenia. Spróbuj ponownie."
+		},
+		"loading": {
+			"loading": "ŁADOWANIE",
+			"clickToStart": "KLIKNIJ ABY ROZPOCZĄĆ",
+			"settings": "Ustawienia"
+		},
+		"tutorial": {
+			"toMove": "aby się poruszać",
+			"toInteract": "aby wchodzić w interakcje",
+			"toJump": "aby skakać",
+			"toCrouch": "aby kucnąć",
+			"toListenCarefully": "aby uważnie słuchać",
+			"objectives": {
+				"enterTutorialRoom": "Wejdź do pokoju samouczka",
+				"closeDoor": "Zamknij drzwi",
+				"listenBathroomDoor": "Posłuchaj przy drzwiach łazienki",
+				"hideBehindCurtains": "Schowaj się za zasłonami w łazience",
+				"hideInsideDesk": "Schowaj się w biurku",
+				"checkNightstand": "Sprawdź szafkę nocną",
+				"closeNightstandDoor": "Zamknij drzwi szafki nocnej"
+			}
+		},
+		"objectives": {
+			"findExit": "Znajdź wyjście",
+			"refillSoapBottles": "Uzupełnij butelki z mydłem",
+			"makeTheBed": "Pościel łóżko",
+			"openTheWindow": "Otwórz okno"
+		},
+		"deathScreen": {
+			"youDied": "ZGINĄŁEŚ",
+			"hidingSpotsFound": " kryjówek znalezionych",
+			"continue": "KONTYNUUJ",
+			"restarting": "Restartowanie..."
+		},
+		"endGameScreen": {
+			"thankYouForPlaying": "DZIĘKUJEMY ZA GRĘ",
+			"yourTime": "Twój czas:",
+			"enterYourName": "Wprowadź swoje imię",
+			"signGuestBook": "Podpisz księgę gości",
+			"saving": "Zapisywanie...",
+			"submissionSuccess": "Możesz zobaczyć swój wpis przy recepcji",
+			"playAgain": "ZAGRAJ PONOWNIE",
+			"restarting": "RESTARTOWANIE...",
+			"nameValidation": {
+				"tooShort": "Imię musi mieć co najmniej {{min}} znaków",
+				"tooLong": "Imię może mieć maksymalnie {{max}} znaków",
+				"invalidPattern": "Imię może zawierać tylko litery, cyfry, spacje i podstawowe znaki interpunkcyjne",
+				"submitError": "Nie udało się wysłać wpisu. Spróbuj ponownie."
+			}
+		},
+		"howItsMade": {
+			"title": "Jak to zostało zrobione",
+			"technologies": "TECHNOLOGIE",
+			"people": "LUDZIE",
+			"openSource": "To jest projekt open source. Sprawdź",
+			"githubRepository": "repozytorium GitHub",
+			"threejsDescription": "Biblioteka JavaScript do tworzenia grafiki 3D w przeglądarce",
+			"createdBy": "Stworzony przez",
+			"r3fDescription": "Narzędzie ułatwiające używanie three.js z React",
+			"threejsJourneyDescription": "Kurs online do nauki 3D dla sieci",
+			"gameConceptDesignDev": "Koncepcja gry, projektowanie gry i rozwój gry",
+			"uiArtDirection": "Interfejs użytkownika i kierownictwo artystyczne"
+		},
+		"reception": {
+			"guestBook": "Księga gości",
+			"informations": "Informacje",
+			"guestBookSubtitle": "Ukończ grę, aby zapisać swoje imię",
+			"searchPlaceholder": "Wprowadź numer strony lub wyszukaj imię"
+		}
+	},
+	"game": {
+		"dialogues": {
+			"locked": "Jest zamknięte.",
+			"welcomeBack": "Witaj z powrotem.",
+			"welcomeHousekeeper": "Witaj. Musisz być nową pokojówką.",
+			"closeDoors": "Zawsze zamykaj drzwi za sobą, bo mogą wejść podczas sprzątania pokoju.",
+			"bathroomWarning": "Jeśli usłyszysz dźwięki z łazienki, nie otwieraj drzwi - natychmiast odejdź.",
+			"checkRoom": "Sprawdź cały pokój uważnie. Mogą się ukrywać wszędzie.",
+			"spotWarning": "Jeśli zobaczysz jednego z nich, szybko zamknij drzwi i wyjdź z pokoju.",
+			"wellDone": "Dobrze zrobione! Teraz posprzątaj 8 pokoi, aby skończyć dzień.",
+			"turnBack": "Pamiętaj: jeśli zobaczysz jednego z nich w pokoju, natychmiast się wycofaj.",
+			"infested": "Połowa tych pokoi jest losowo zainfekowana. Postępuj ostrożnie."
+		},
+		"deathReasons": {
+			"underBed": "Ukrywało się pod łóżkiem",
+			"bathroomVent": "Ukrywało się w wentylacji łazienki",
+			"roomVent": "Ukrywało się w wentylacji pokoju",
+			"bedBasket": "Ukrywało się w koszu na bieliznę przy łóżku",
+			"windowBasket": "Ukrywało się w przegrodzie szafki pod TV (po prawej stronie telewizora)",
+			"hideoutMirror": "Jeśli zobaczysz to w lustrze, natychmiast uciekaj",
+			"behindDoor": "Ukrywało się za drzwiami",
+			"footWindow": "Jego stopy były widoczne pod zasłoną",
+			"landmineMirror": "Ukrywało się w lustrze",
+			"nearWindow": "Ukrywało się obok kanapy",
+			"ceilingCornerCouch": "Było na suficie nad kanapą",
+			"behindCouch": "Ukrywało się za kanapą",
+			"behindDesk": "Ukrywało się za biurkiem",
+			"insideDesk": "Ukrywało się pod biurkiem",
+			"ceilingCenter": "Było na suficie przy wejściu",
+			"sonarBathroom": "Nie otwieraj drzwi łazienki, jeśli słyszysz dźwięki z środka (prawy przycisk myszy lub Y aby słuchać)",
+			"claymore": "Szybko zamknij drzwi lub zasłony, zanim wyjdzie i cię zaatakuje",
+			"claymoreChase": "Zawsze sprawdź wszystkie kryjówki przed sprzątaniem pokoju",
+			"raidDoor": "Zawsze zamykaj drzwi przed sprzątaniem pokoju",
+			"objective": "Zawsze sprawdź wokół celu przed jego wykonaniem",
+			"hunter": "Jeśli to zobaczysz, uciekaj i zamknij drzwi za sobą",
+			"raidKnocking": "Jeśli usłyszysz pukanie lub zauważysz, że włącza się telewizor lub radio, schowaj się",
+			"raidTV": "Jeśli telewizor włączy się sam, schowaj się",
+			"raidRadio": "Jeśli radio włączy się samo, schowaj się",
+			"raidInscriptions": "Jeśli zobaczysz krwawe napisy na ścianach, schowaj się"
+		},
+		"status": {
+			"thankYouForPlaying": "Dziękujemy za grę",
+			"playAgain": "Zagraj ponownie"
+		}
+	}
+}

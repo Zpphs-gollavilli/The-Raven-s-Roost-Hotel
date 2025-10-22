@@ -1,0 +1,265 @@
+@font-face {
+	font-family: 'Lincoln Road Deco';
+	src: url('/Lincoln-Road-Deco.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Lincoln Road';
+	src: url('/Lincoln-Road-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@keyframes titleAppear {
+	0% {
+		opacity: 0;
+		transform: translateY(-10px) translateX(0.5rem);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0) translateX(0.5rem);
+	}
+}
+
+@keyframes messageAppear {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+@keyframes blink {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+}
+
+/* DEATH SCREEN */
+.death-screen {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: calc(100% - 8rem);
+	height: calc(100% - 8rem);
+	background: #0b0b0b;
+	color: #c83535;
+	z-index: 10000;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 5rem;
+	font-family: 'Lincoln Road', serif;
+	cursor: pointer;
+
+	padding: 4rem;
+}
+
+.death-screen-flex {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 4rem;
+}
+
+.death-screen-title {
+	font-family: 'Lincoln Road Deco', serif;
+	font-size: 8rem;
+	text-align: center;
+	color: #c83535;
+	position: relative;
+	z-index: 2;
+	transform: translateX(0.5rem);
+	letter-spacing: 1px;
+	font-weight: 600;
+	opacity: 0;
+	animation: titleAppear 1.5s ease 0s forwards;
+}
+
+@media (max-width: 500px) {
+	.death-screen-title {
+		font-size: 6rem;
+	}
+}
+
+@media (max-width: 390px) {
+	.death-screen-title {
+		font-size: 4rem;
+	}
+}
+
+@media (max-width: 280px) {
+	.death-screen-title {
+		font-size: 2rem;
+	}
+}
+
+.death-message {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+	font-size: 2.25rem;
+	text-align: center;
+	font-family: 'Lincoln Road', serif;
+	color: #fff;
+	opacity: 0;
+	animation: messageAppear 1.5s ease 1s forwards;
+}
+
+.death-message-count {
+	font-size: 1.5rem;
+	text-align: center;
+	font-family: 'Lincoln Road', serif;
+}
+
+.death-screen-start-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 2rem;
+}
+
+.death-screen-start {
+	font-size: 1.5rem;
+	margin-top: 1rem;
+	font-family: 'Lincoln Road', serif;
+	color: #fff;
+	opacity: 0;
+	animation: messageAppear 1s ease 2.5s forwards,
+		blink 2s ease-in-out 5.5s infinite;
+}
+
+.steam-wishlist-death-screen {
+	position: absolute;
+	transform: translateY(5rem);
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.5rem;
+
+	font-family: 'Lincoln Road', serif;
+	font-size: 1rem;
+
+	display: inline-flex;
+	padding: 1rem 2rem;
+	justify-content: center;
+	align-items: center;
+
+	border: none;
+	border-radius: 8px;
+	background: #1a9fff;
+	color: #fff;
+	opacity: 0;
+	animation: messageAppear 1s ease 2.5s forwards;
+}
+
+.steam-wishlist-death-screen:hover {
+	background: #007bff;
+	cursor: pointer;
+}
+
+@media (max-height: 700px) {
+	.death-screen-flex {
+		gap: 2rem;
+	}
+
+	.death-screen-title {
+		font-size: 7rem;
+	}
+
+	.death-message {
+		font-size: 2rem;
+	}
+
+	.death-message-count {
+		font-size: 1.4rem;
+	}
+
+	.death-screen-start {
+		font-size: 1.4rem;
+	}
+}
+
+@media (max-height: 500px) {
+	.death-screen-flex {
+		gap: 1.5rem;
+	}
+
+	.death-screen-title {
+		font-size: 5rem;
+	}
+
+	.death-message {
+		font-size: 1.8rem;
+	}
+
+	.death-message-count {
+		font-size: 1.2rem;
+	}
+
+	.death-screen-start {
+		font-size: 1.2rem;
+	}
+
+	.steam-wishlist-death-screen {
+		transform: translateY(2rem);
+		font-size: 1rem;
+		padding: 0.8rem 1.5rem;
+	}
+}
+
+@media (max-height: 400px) {
+	.death-screen-flex {
+		gap: 1rem;
+	}
+
+	.death-screen-title {
+		font-size: 4rem;
+	}
+
+	.death-message {
+		font-size: 1.5rem;
+	}
+
+	.death-message-count {
+		font-size: 1rem;
+	}
+
+	.death-screen-start {
+		font-size: 1rem;
+		margin-top: 0.5rem;
+	}
+
+	.steam-wishlist-death-screen {
+		transform: translateY(1rem);
+		font-size: 0.9rem;
+		padding: 0.6rem 1.2rem;
+	}
+}
+
+@media (max-height: 500px) and (max-width: 500px) {
+	.death-screen-title {
+		font-size: 3.5rem;
+	}
+
+	.death-message {
+		font-size: 1.3rem;
+	}
+
+	.death-message-count {
+		font-size: 1rem;
+	}
+}

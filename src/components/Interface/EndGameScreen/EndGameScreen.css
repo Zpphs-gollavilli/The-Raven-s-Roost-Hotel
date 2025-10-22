@@ -1,0 +1,282 @@
+@font-face {
+	font-family: 'Lincoln Road Deco';
+	src: url('/Lincoln-Road-Deco.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Lincoln Road';
+	src: url('/Lincoln-Road-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.end-game-screen {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: calc(100dvh - 12rem);
+	background: #080807;
+	padding: 6rem 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	z-index: 10000;
+	pointer-events: auto;
+	gap: 2.5rem;
+}
+
+.triangle-patterns-container {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	pointer-events: none;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+@media (max-aspect-ratio: 1/1) {
+	.triangle-patterns-container {
+		left: -0.5rem;
+		width: 100dvh;
+		transform: rotate(90deg);
+		align-items: flex-end;
+	}
+}
+
+.column {
+	display: flex;
+	flex-direction: column;
+	gap: 0.75rem;
+}
+
+@media (max-width: 950px) {
+	.column {
+		gap: 0.375rem;
+	}
+}
+
+.end-game-screen > svg {
+	width: 40dvw;
+	height: 40dvh;
+	position: relative;
+	z-index: 2;
+}
+
+.end-game-screen > svg > path {
+	fill: #8b0000;
+}
+
+.end-game-message {
+	color: #efd89b;
+	font-size: 2.5rem;
+	font-family: 'Lincoln Road Deco', serif;
+	text-align: center;
+	letter-spacing: 1px;
+	font-weight: 600;
+	position: relative;
+	z-index: 2;
+}
+
+.completion-time {
+	font-size: 1.75rem;
+	margin-bottom: 1rem;
+	text-align: center;
+	font-weight: 400;
+	color: #fff;
+	font-family: 'Lincoln Road', serif;
+	position: relative;
+	z-index: 2;
+}
+
+.name-input-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: calc(100% - 2rem);
+	max-width: 600px;
+	position: relative;
+	z-index: 2;
+	gap: 10px;
+}
+
+.name-input-container label {
+	font-size: 1rem;
+	color: white;
+	font-family: 'Lincoln Road', serif;
+}
+
+.name-input-container input {
+	flex: 2;
+	padding: 0.75rem 1rem;
+	font-size: 1rem;
+	background-color: transparent;
+	border: 1px solid #fff;
+	color: white;
+	font-family: 'Lincoln Road', serif;
+	border-radius: 0.5rem;
+	position: relative;
+	z-index: 2;
+	margin-right: 0;
+	max-width: 40%;
+	width: 40%;
+}
+
+.name-input-container input::placeholder {
+	color: #fff;
+}
+
+.name-input-container input:focus {
+	outline: none;
+	border-color: #efd89b;
+}
+
+.name-input-container .submit-button {
+	background-color: #efd89b;
+	border: 1px solid #efd89b;
+	color: #080807;
+	font-weight: 600;
+
+	padding: 0.75rem 1rem;
+	font-size: 1rem;
+	cursor: pointer;
+	font-family: 'Lincoln Road', serif;
+	transition: all 0.2s ease;
+	border-radius: 0.5rem;
+	position: relative;
+	z-index: 2;
+	width: fit-content;
+}
+
+.submit-button:hover:not(:disabled) {
+	opacity: 0.8;
+}
+
+.submit-button:disabled {
+	background-color: transparent;
+	border: 1px solid #777d90;
+	color: #777d90;
+
+	cursor: not-allowed;
+}
+
+.submission-success {
+	padding: 0.75rem 1rem;
+	background-color: rgba(0, 0, 0, 0.1);
+	border: 1px solid #777d90;
+	color: #fff;
+	text-align: center;
+	border-radius: 0.5rem;
+	font-family: 'Lincoln Road', serif;
+	position: relative;
+	z-index: 2;
+}
+
+.restart-button {
+	background: transparent;
+	border: none;
+	color: #fff;
+	font-size: 2rem;
+	padding: 0.8rem 2rem;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	font-family: 'Lincoln Road', serif;
+	position: relative;
+	z-index: 2;
+	white-space: nowrap;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 0.15rem;
+	animation: blink 2s ease-in-out 0s infinite;
+}
+
+@keyframes blink {
+	0%,
+	100% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+}
+
+.restart-button:hover {
+	opacity: 1;
+}
+
+.gamepad-controls-hint {
+	position: relative;
+	z-index: 2;
+}
+
+@media (max-height: 600px) {
+	.end-game-screen > svg {
+		width: 20dvw;
+		height: 20dvh;
+	}
+
+	.end-game-message {
+		font-size: 1.8rem;
+	}
+
+	.end-game-screen {
+		gap: 1rem;
+	}
+}
+
+@media (max-height: 420px) {
+	.end-game-screen {
+		height: 100dvh;
+		padding: 0;
+	}
+}
+
+@media (max-width: 500px) {
+	.name-input-container {
+		flex-direction: column;
+	}
+	.name-input-container input {
+		width: calc(100% - 2rem);
+		max-width: 100%;
+		margin-right: 0;
+		margin-bottom: 0;
+	}
+	.name-input-container .submit-button {
+		width: 100%;
+	}
+}
+
+.static-triangle-pattern {
+	pointer-events: none;
+	z-index: 1;
+	width: 11.5rem;
+	height: 28.75rem;
+}
+
+.static-triangle-pattern.left {
+	left: 0;
+	top: 0;
+}
+
+.static-triangle-pattern.right {
+	right: 0;
+	top: 0;
+}
+
+.static-triangle-pattern path {
+	opacity: 1;
+}
+
+@media (max-width: 515px) {
+	.static-triangle-pattern {
+		width: 5.75rem;
+		height: 14.375rem;
+	}
+}

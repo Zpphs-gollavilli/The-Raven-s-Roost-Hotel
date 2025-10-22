@@ -1,0 +1,168 @@
+@font-face {
+	font-family: 'Lincoln Road Regular';
+	font-style: normal;
+	font-weight: 400;
+	src: url('/Lincoln-Road-Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Lincoln Road Deco';
+	font-style: normal;
+	font-weight: 400;
+	src: url('/Lincoln-Road-Deco.ttf') format('truetype');
+}
+
+html,
+body,
+#root {
+	font-family: 'Lincoln Road Regular', serif !important;
+
+	background: #000;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	touch-action: none;
+	-webkit-tap-highlight-color: transparent;
+	user-select: none;
+	-webkit-user-select: none;
+}
+
+.interface {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	color: white;
+}
+
+.objectives {
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+	width: fit-content;
+	padding: 30px;
+}
+
+.action {
+	display: flex;
+	align-items: flex-end;
+	justify-content: center;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	padding: 30px;
+}
+
+.done {
+	text-decoration: line-through;
+}
+
+html {
+	font-size: 16px; /* 1rem = 16px */
+}
+@media (min-width: 1200px) {
+	html {
+		font-size: 18px; /* 1rem = 18px */
+	}
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+	html {
+		font-size: 16px; /* 1rem = 16px */
+	}
+}
+@media (min-width: 768px) and (max-width: 991px) {
+	html {
+		font-size: 15px; /* 1rem = 15px */
+	}
+}
+@media (min-width: 576px) and (max-width: 767px) {
+	html {
+		font-size: 14px; /* 1rem = 14px */
+	}
+}
+@media (max-width: 575px) {
+	html {
+		font-size: 12px; /* 1rem = 12px */
+		overflow: hidden;
+		position: fixed;
+		width: 100%;
+		height: 100%;
+	}
+}
+
+@media (max-height: 800px) {
+	html {
+		font-size: 15px;
+	}
+}
+@media (max-height: 700px) {
+	html {
+		font-size: 14px;
+	}
+}
+@media (max-height: 600px) {
+	html {
+		font-size: 13px;
+	}
+}
+@media (max-height: 500px) {
+	html {
+		font-size: 12px;
+	}
+}
+@media (max-height: 400px) {
+	html {
+		font-size: 10px;
+	}
+}
+
+/* GAMEPAD */
+
+.gamepad-focus {
+	position: relative;
+	z-index: 2;
+	transition: all 0.2s ease;
+}
+
+button.gamepad-focus,
+.pagination-button.gamepad-focus,
+.restart-button.gamepad-focus,
+.submit-button.gamepad-focus,
+.close-button.gamepad-focus,
+[role='button'].gamepad-focus {
+	background: rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+	width: 8px;
+	height: 8px;
+}
+
+::-webkit-scrollbar-track {
+	background: rgba(0, 0, 0, 0.3);
+	border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+	background: rgba(255, 255, 255, 0.2);
+	border-radius: 4px;
+	transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: rgba(255, 255, 255, 0.3);
+}
+
+/* Firefox scrollbar */
+* {
+	scrollbar-width: thin;
+	scrollbar-color: rgba(255, 255, 255, 0.2) rgba(0, 0, 0, 0.3);
+}

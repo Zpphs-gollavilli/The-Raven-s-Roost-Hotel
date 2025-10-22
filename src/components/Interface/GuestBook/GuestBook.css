@@ -1,0 +1,472 @@
+@font-face {
+	font-family: 'Lincoln Road Deco';
+	src: url('/Lincoln-Road-Deco.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Lincoln Road';
+	src: url('/Lincoln-Road-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.gamepad-controls-hint {
+	margin-top: 20px;
+	background: rgba(0, 0, 0, 0.3);
+	padding: 10px;
+	border-radius: 8px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 15px;
+}
+
+.gamepad-control {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	font-size: 0.9rem;
+}
+
+.gamepad-button {
+	background: #333;
+	color: white;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	font-size: 0.8rem;
+}
+
+.gamepad-button.a {
+	background: #107c10;
+}
+
+.gamepad-button.b {
+	background: #d90429;
+}
+
+.gamepad-button.dpad {
+	border-radius: 3px;
+	font-size: 12px;
+}
+
+/* Guest Book Popup */
+
+.guestbook-content {
+	background: rgba(8, 8, 7, 0.8);
+	border-radius: 0.5rem;
+	color: #f8f8f8;
+	font-family: 'Lincoln Road', serif;
+
+	max-width: 1120px;
+	width: calc(100% - 4rem);
+	height: fit-content;
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.guestbook-content img {
+	position: absolute;
+	max-width: 60%;
+	width: 30rem;
+	margin-top: 2rem;
+}
+
+@media (max-width: 700px) {
+	.guestbook-content {
+		width: 100%;
+	}
+}
+
+@media (max-height: 800px) {
+	.guestbook-content {
+		height: 100%;
+	}
+}
+
+@media (max-width: 440px) {
+	.guestbook-content img {
+		margin-top: 3rem;
+		max-width: 40%;
+	}
+}
+
+.guestbook-header {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	width: calc(100% - 4rem);
+	padding: 2rem;
+}
+
+@media (max-width: 700px) {
+	.guestbook-header {
+		padding-bottom: 1rem;
+	}
+}
+
+.guestbook-content h2 {
+	margin: 0;
+	font-size: 2rem;
+	font-family: 'Lincoln Road Deco', serif;
+	color: #efd89b;
+	font-weight: 400;
+	margin-bottom: 1rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.guestbook-subtitle {
+	margin: 0 0 1.5rem 0;
+	font-size: 1rem;
+	color: rgba(255, 255, 255, 0.8);
+	text-align: center;
+	font-style: italic;
+}
+
+.guestbook-error {
+	background-color: rgba(139, 0, 0, 0.2);
+	border: 1px solid rgba(139, 0, 0, 0.4);
+	padding: 15px;
+	border-radius: 6px;
+	margin-bottom: 20px;
+	display: flex;
+	align-items: flex-start;
+	gap: 15px;
+}
+
+.error-icon {
+	font-size: 1.5rem;
+}
+
+.error-content {
+	flex: 1;
+}
+
+.error-content p {
+	margin: 0 0 10px 0;
+}
+
+.guestbook-retry {
+	background: transparent;
+	color: #777d90;
+	border: 1px solid #777d90;
+	border-radius: 0.5rem;
+	padding: 6px 12px;
+	cursor: pointer;
+	font-size: 0.9rem;
+	font-family: 'Lincoln Road', serif;
+}
+
+.guestbook-retry:hover {
+	background: rgba(255, 255, 255, 0.2);
+}
+
+.guestbook-loading {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, calc(-50% - 10px));
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 10;
+}
+
+.loading-spinner {
+	width: 40px;
+	height: 40px;
+	border: 3px solid rgba(239, 216, 155, 0.3);
+	border-top: 3px solid #efd89b;
+	border-radius: 50%;
+	animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+.guestbook-empty {
+	text-align: center;
+	padding: 40px 0;
+	color: rgba(255, 255, 255, 0.7);
+}
+
+.empty-icon {
+	font-size: 3rem;
+	margin-bottom: 15px;
+}
+
+/* Guest Book Entries */
+
+.guestbook-entries {
+	width: calc(100% - 4rem);
+	height: calc(100dvh - 25rem);
+	overflow: auto;
+	position: relative;
+}
+
+@media (max-height: 800px) {
+	.guestbook-entries {
+		height: 100%;
+		width: calc(100% - 1rem);
+	}
+}
+
+.guestbook-table {
+	width: 100%;
+	max-width: 100%;
+	border-collapse: separate;
+	border-spacing: 0 8px;
+	font-family: 'Lincoln Road', serif;
+}
+
+.guestbook-table th {
+	text-align: left;
+	background-color: rgba(0, 0, 0, 0.3);
+	position: sticky;
+	top: 0;
+	z-index: 1;
+	color: #efd89b;
+	font-family: 'Lincoln Road Deco', serif;
+	font-weight: 400;
+	letter-spacing: 1px;
+}
+
+.guestbook-table tr:nth-child(odd) {
+	background-color: transparent;
+}
+
+.guestbook-entry {
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+	word-break: break-all;
+	background-color: transparent;
+}
+
+.guestbook-entry:hover {
+	background-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.guestbook-entry:hover .guestbook-rank {
+	color: #efd89b;
+}
+
+.guestbook-entry td {
+	padding: 10px;
+	line-height: 1.2;
+}
+
+.guestbook-entry td:first-child {
+	border-top-left-radius: 6px;
+	border-bottom-left-radius: 6px;
+}
+
+.guestbook-entry td:last-child {
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+
+.guestbook-rank {
+	text-align: center;
+	width: 50px;
+	white-space: nowrap;
+	word-break: normal;
+	transition: color 0.2s ease;
+}
+
+.guestbook-time {
+	text-align: right;
+	width: 5rem;
+}
+
+/* Guest Book Pagination */
+
+.guestbook-pagination {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: calc(100% - 4rem);
+	gap: 10px;
+	margin: 1rem 0;
+}
+
+.pagination-button-container {
+	display: flex;
+	align-items: center;
+	gap: 2rem;
+}
+
+.pagination-button {
+	background: transparent;
+	border: none;
+
+	padding: 0.5rem 1rem;
+	border-radius: 0.25rem;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	cursor: pointer;
+	font-family: 'Lincoln Road', serif;
+	transition: all 0.2s ease;
+
+	stroke-linecap: round;
+	stroke-linejoin: miter;
+	stroke-dasharray: none;
+	paint-order: stroke markers fill;
+}
+
+.pagination-button:disabled {
+	opacity: 0.3;
+	cursor: default;
+}
+
+.pagination-button:hover:not(:disabled) {
+	background: rgba(239, 216, 155, 0.1);
+}
+
+.hover-visible-path {
+	opacity: 0;
+	transition: opacity 0.2s ease;
+}
+
+.pagination-button:hover:not(:disabled) .hover-visible-path,
+.pagination-button.gamepad-focus .hover-visible-path {
+	opacity: 1;
+}
+
+.page-indicator {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+
+	gap: 5px;
+	font-family: 'Lincoln Road', serif;
+	color: #efd89b;
+
+	margin-bottom: 1rem;
+}
+
+.page-form {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+}
+
+.page-input {
+	width: 20rem;
+	background: transparent;
+	border: 1px solid #fff;
+	color: white;
+	padding: 8px;
+	border-radius: 0.5rem;
+	text-align: center;
+	font-family: 'Lincoln Road', serif;
+}
+
+.page-input::placeholder {
+	color: #fff;
+}
+
+.page-input:focus {
+	outline: none;
+	border-color: #efd89b;
+}
+
+.go-button {
+	background: transparent;
+	color: #777d90;
+	border: 1px solid #777d90;
+	border-radius: 0.5rem;
+	padding: 8px 12px;
+	cursor: pointer;
+	font-family: 'Lincoln Road', serif;
+}
+
+.go-button:hover:not(:disabled) {
+	background: rgba(255, 255, 255, 0.2);
+}
+
+.page-info {
+	color: #efd89b;
+	width: 5rem;
+	text-align: center;
+}
+
+.invisible-path {
+	opacity: 0;
+}
+
+@media (max-height: 600px) {
+	.guestbook-header-section {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: calc(100% - 4rem);
+		gap: 2rem;
+		margin-bottom: 1rem;
+	}
+
+	.guestbook-title-subtitle {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		flex: 1;
+		min-width: 0;
+	}
+
+	.guestbook-content h2 {
+		margin-bottom: 0.5rem;
+		font-size: 1.5rem;
+	}
+
+	.guestbook-subtitle {
+		margin: 0;
+		font-size: 0.9rem;
+		text-align: left;
+	}
+
+	.page-indicator {
+		width: auto;
+		margin-bottom: 0;
+		flex: 1;
+		max-width: 300px;
+	}
+
+	.page-input {
+		width: 100%;
+		min-width: 200px;
+	}
+}
+
+@media (max-height: 500px) {
+	.guestbook-content h2 {
+		font-size: 1.3rem;
+	}
+
+	.guestbook-subtitle {
+		font-size: 0.8rem;
+	}
+
+	.page-input {
+		padding: 6px;
+		font-size: 0.9rem;
+	}
+}
