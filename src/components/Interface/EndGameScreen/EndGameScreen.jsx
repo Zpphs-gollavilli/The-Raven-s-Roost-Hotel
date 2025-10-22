@@ -2,7 +2,8 @@ import { useState, useRef } from 'react';
 import useLocalization from '../../../hooks/useLocalization';
 import { getAudioInstance } from '../../../utils/audio';
 import { getConsoleMessages } from '../../../utils/consoleLogger';
-import './EndGameScene.css';
+import './EndGameScreen.css';
+
 
 export default function EndGameScene({ onClose }) {
 	const [description, setDescription] = useState('');
