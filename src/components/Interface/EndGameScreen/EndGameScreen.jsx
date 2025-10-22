@@ -2,9 +2,9 @@ import { useState, useRef } from 'react';
 import useLocalization from '../../../hooks/useLocalization';
 import { getAudioInstance } from '../../../utils/audio';
 import { getConsoleMessages } from '../../../utils/consoleLogger';
-import './BugReport.css';
+import './EndGameScene.css';
 
-export default function BugReport({ onClose }) {
+export default function EndGameScene({ onClose }) {
 	const [description, setDescription] = useState('');
 	const [isSubmitting, setIsSubmitting] = useState(false);
 	const [submitSuccess, setSubmitSuccess] = useState(false);
