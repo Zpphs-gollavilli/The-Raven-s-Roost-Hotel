@@ -6,11 +6,7 @@ In Skull Hotel, you play as a housekeeper tasked with cleaning 8 hotel rooms. Be
 
 ## Installation
 
-```bash
-# Clone the repository
-git clone https://github.com/JamesHall38/skullhotel.io.git
-cd skullhotel
-
+``` Bash
 # Install dependencies
 npm install
 
