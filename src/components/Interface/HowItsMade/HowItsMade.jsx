@@ -365,11 +365,11 @@ function HowItsMadeContent({ onClose }) {
 							<p
 								className="tech-author"
 								onClick={(e) =>
-									handleLinkClick(e, 'https://github.com/JamesHall38')
+									handleLinkClick(e, 'https://github.com/Zpphs-gollavilli/')
 								}
 							>
 								<a
-									href={isInSteamBuild ? '#' : 'https://github.com/JamesHall38'}
+									href={isInSteamBuild ? '#' : 'https://github.com/Zpphs-gollavilli/'}
 									target={isInSteamBuild ? '_self' : '_blank'}
 									rel="noopener noreferrer"
 									onClick={(e) => isInSteamBuild && e.preventDefault()}
@@ -379,61 +379,7 @@ function HowItsMadeContent({ onClose }) {
 											: {}
 									}
 								>
-									James Hall
-								</a>
-							</p>
-							<div className="external-link-icon-container">
-								{!isInSteamBuild && (
-									<RxExternalLink className="external-link-icon" />
-								)}
-							</div>
-						</h3>
-					</div>
-					<div className="tech-description">
-						<h3
-							onClick={(e) =>
-								handleLinkClick(e, 'https://www.linkedin.com/in/lucas-houbre')
-							}
-						>
-							<a
-								href={
-									isInSteamBuild
-										? '#'
-										: 'https://www.linkedin.com/in/lucas-houbre'
-								}
-								target={isInSteamBuild ? '_self' : '_blank'}
-								rel="noopener noreferrer"
-								onClick={(e) => isInSteamBuild && e.preventDefault()}
-								style={
-									isInSteamBuild
-										? { cursor: 'default', textDecoration: 'none' }
-										: {}
-								}
-							>
-								{t('ui.howItsMade.uiArtDirection')}
-							</a>
-							<p
-								className="tech-author"
-								onClick={(e) =>
-									handleLinkClick(e, 'https://www.linkedin.com/in/lucas-houbre')
-								}
-							>
-								<a
-									href={
-										isInSteamBuild
-											? '#'
-											: 'https://www.linkedin.com/in/lucas-houbre'
-									}
-									target={isInSteamBuild ? '_self' : '_blank'}
-									rel="noopener noreferrer"
-									onClick={(e) => isInSteamBuild && e.preventDefault()}
-									style={
-										isInSteamBuild
-											? { cursor: 'default', textDecoration: 'none' }
-											: {}
-									}
-								>
-									Lucas Houbre
+									G siddharth
 								</a>
 							</p>
 							<div className="external-link-icon-container">
