@@ -133,7 +133,7 @@ function HowItsMadeContent({ onClose }) {
 								href={
 									isInSteamBuild
 										? '#'
-										: 'https://github.com/JamesHall38/skullhotel.io'
+										: 'https://the-raven-s-roost-hotel.netlify.app/'
 								}
 								target={isInSteamBuild ? '_self' : '_blank'}
 								rel="noopener noreferrer"
@@ -392,14 +392,14 @@ function HowItsMadeContent({ onClose }) {
 					<div className="tech-description">
 						<h3
 							onClick={(e) =>
-								handleLinkClick(e, 'mailto:aviktoram@1090@gmail.com')
+								handleLinkClick(e, 'mailto:yeshwinbasava@gmail.com')
 							}
 						>
 							<a
 								href={
 									isInSteamBuild
 										? '#'
-										: 'mailto:aviktoram@1090@gmail.com'
+										: 'mailto:yeshwinbasava@gmail.com'
 								}
 								target={isInSteamBuild ? '_self' : '_blank'}
 								rel="noopener noreferrer"
@@ -415,14 +415,14 @@ function HowItsMadeContent({ onClose }) {
 							<p
 								className="tech-author"
 								onClick={(e) =>
-									handleLinkClick(e, 'mailto:aviktoram@1090@gmail.com')
+									handleLinkClick(e, 'mailto:yeshwinbasava@gmail.com')
 								}
 							>
 								<a
 									href={
 										isInSteamBuild
 											? '#'
-											: 'mailto:aviktoram@1090@gmail.com'
+											: 'mailto:yeshwinbasava@gmail.com'
 									}
 									target={isInSteamBuild ? '_self' : '_blank'}
 									rel="noopener noreferrer"
@@ -433,7 +433,7 @@ function HowItsMadeContent({ onClose }) {
 											: {}
 									}
 								>
-									T Avik
+									B Yeshwin
 								</a>
 							</p>
 							<div className="external-link-icon-container">
